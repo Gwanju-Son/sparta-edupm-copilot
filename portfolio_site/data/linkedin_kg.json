@@ -1,0 +1,97 @@
+{
+  "title": "손관주의 지식 그래프",
+  "entities": [
+    {
+      "id": "person_gwanjuson",
+      "name": "손관주",
+      "type": "인물",
+      "description": "5년째 글쓰기 습관을 유지하며 데이터 및 AI 역량 개발에 집중하는 인물"
+    },
+    {
+      "id": "org_kdigital_training",
+      "name": "K-Digital Training",
+      "type": "교육 프로그램",
+      "description": "데이터 분석 및 인공지능 기술 심화 학습 과정"
+    },
+    {
+      "id": "org_sonsaem_readingclass",
+      "name": "손샘의리딩클래스",
+      "type": "사업체",
+      "description": "손관주가 운영했던 1인 교육사업"
+    },
+    {
+      "id": "org_readingstar_institute",
+      "name": "ReadingStar Institute",
+      "type": "교육기관",
+      "description": "원어 수업 교사 및 담임교사로 근무했던 기관"
+    },
+    {
+      "id": "org_oocilpalgu",
+      "name": "(주)오오칠팔구",
+      "type": "기업",
+      "description": "이벤트 프로젝트 매니저로 근무했던 기업"
+    },
+    {
+      "id": "skill_data_analysis",
+      "name": "데이터 분석",
+      "type": "역량",
+      "description": "현업 필요성을 실감하여 심화 학습 중인 역량"
+    },
+    {
+      "id": "skill_ai",
+      "name": "인공지능",
+      "type": "역량",
+      "description": "K-Digital Training을 통해 고도화 중인 기술 및 역량"
+    },
+    {
+      "id": "habit_writing",
+      "name": "글쓰기",
+      "type": "습관",
+      "description": "5년째 꾸준히 1일 1포스팅을 이어오는 습관"
+    },
+    {
+      "id": "loc_gyeonggi",
+      "name": "대한민국 경기",
+      "type": "지역",
+      "description": "경력개발, 1인 교육사업, (주)오오칠팔구 활동 및 근무 지역"
+    },
+    {
+      "id": "loc_bochum",
+      "name": "독일 노르트라인베스트팔렌 보훔",
+      "type": "지역",
+      "description": "자기개발을 위해 체류했던 도시"
+    },
+    {
+      "id": "loc_seoul",
+      "name": "대한민국 서울",
+      "type": "지역",
+      "description": "ReadingStar Institute 근무지"
+    },
+    {
+      "id": "loc_korea",
+      "name": "대한민국",
+      "type": "지역",
+      "description": "Project & Program Manager 활동 지역"
+    },
+    {
+      "id": "program_youth_workexp",
+      "name": "청년일경험 사업",
+      "type": "프로그램",
+      "description": "청년 인재 양성을 위해 기획 및 운영한 프로그램"
+    }
+  ],
+  "relationships": [
+    { "source": "person_gwanjuson", "target": "org_kdigital_training", "relationship": "학습 중" },
+    { "source": "person_gwanjuson", "target": "skill_data_analysis", "relationship": "역량 개발 중" },
+    { "source": "person_gwanjuson", "target": "skill_ai", "relationship": "역량 개발 중" },
+    { "source": "person_gwanjuson", "target": "org_sonsaem_readingclass", "relationship": "운영 경험" },
+    { "source": "person_gwanjuson", "target": "org_readingstar_institute", "relationship": "근무" },
+    { "source": "person_gwanjuson", "target": "org_oocilpalgu", "relationship": "근무" },
+    { "source": "person_gwanjuson", "target": "program_youth_workexp", "relationship": "기획 및 운영" },
+    { "source": "person_gwanjuson", "target": "habit_writing", "relationship": "유지" },
+    { "source": "person_gwanjuson", "target": "loc_gyeonggi", "relationship": "활동지" },
+    { "source": "person_gwanjuson", "target": "loc_bochum", "relationship": "활동지" },
+    { "source": "person_gwanjuson", "target": "loc_seoul", "relationship": "활동지" },
+    { "source": "person_gwanjuson", "target": "loc_korea", "relationship": "활동지" }
+  ]
+}

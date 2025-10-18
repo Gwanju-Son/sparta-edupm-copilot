@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gwanju-son.github.io/gwanju-son-portfolio/sitemap.xml
