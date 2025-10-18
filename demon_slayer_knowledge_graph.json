@@ -1,0 +1,234 @@
+{
+  "title": "귀멸의 칼날: 무한열차편",
+  "entities": [
+    {
+      "id": "e1",
+      "name": "탄지로 카마도",
+      "type": "인물",
+      "description": "주인공, 귀살대원",
+      "attributes": {
+        "호흡": "화염의 호흡 (히노카미 카구라)",
+        "무기": "일륜도"
+      }
+    },
+    {
+      "id": "e2",
+      "name": "네즈코 카마도",
+      "type": "인물",
+      "description": "탄지로의 여동생, 온화한 성격의 귀화",
+      "attributes": {
+        "능력": "피의 악귀술 (염력)"
+      }
+    },
+    {
+      "id": "e3",
+      "name": "젠이츠 아가츠마",
+      "type": "인물",
+      "description": "탄지로의 친구, 귀살대원",
+      "attributes": {
+        "호흡": "뇌의 호흡"
+      }
+    },
+    {
+      "id": "e4",
+      "name": "이노스케 하시비라",
+      "type": "인물",
+      "description": "탄지로의 친구, 귀살대원",
+      "attributes": {
+        "호흡": "멧돼지의 호흡"
+      }
+    },
+    {
+      "id": "e5",
+      "name": "쿄쥬로 렌고쿠",
+      "type": "인물",
+      "description": "염주, 귀살대의 기둥",
+      "attributes": {
+        "호흡": "염의 호흡"
+      }
+    },
+    {
+      "id": "e6",
+      "name": "엔무",
+      "type": "인물",
+      "description": "무잔의 십이귀월 하위 일",
+      "attributes": {
+        "능력": "꿈 조종, 무한열차와 융합"
+      }
+    },
+    {
+      "id": "e7",
+      "name": "아카자",
+      "type": "인물",
+      "description": "무잔의 십이귀월 상위 삼",
+      "attributes": {
+        "능력": "강력한 재생능력, 근접전투"
+      }
+    },
+    {
+      "id": "e8",
+      "name": "무한열차",
+      "type": "장소",
+      "description": "사건의 주요 무대가 되는 열차"
+    },
+    {
+      "id": "e9",
+      "name": "꿈의 세계",
+      "type": "장소",
+      "description": "엔무의 능력으로 인해 등장하는 세계"
+    },
+    {
+      "id": "e10",
+      "name": "무잔 키부츠지",
+      "type": "인물",
+      "description": "최종 보스, 최강의 악귀"
+    },
+    {
+      "id": "e11",
+      "name": "카가야 우부야시키",
+      "type": "인물",
+      "description": "귀살대의 두령"
+    }
+  ],
+  "relationships": [
+    {
+      "source": "e1",
+      "target": "e2",
+      "relationship": "형제",
+      "description": "탄지로와 네즈코는 남매이다."
+    },
+    {
+      "source": "e1",
+      "target": "e3",
+      "relationship": "동료",
+      "description": "탄지로와 젠이츠는 귀살대 동료이다."
+    },
+    {
+      "source": "e1",
+      "target": "e4",
+      "relationship": "동료",
+      "description": "탄지로와 이노스케는 귀살대 동료이다."
+    },
+    {
+      "source": "e1",
+      "target": "e5",
+      "relationship": "동료",
+      "description": "탄지로와 렌고쿠는 귀살대 동료이다."
+    },
+    {
+      "source": "e6",
+      "target": "e10",
+      "relationship": "부하",
+      "description": "엔무는 무잔의 부하이다."
+    },
+    {
+      "source": "e7",
+      "target": "e10",
+      "relationship": "부하",
+      "description": "아카자는 무잔의 부하이다."
+    },
+    {
+      "source": "e11",
+      "target": "e9",
+      "relationship": "인지",
+      "description": "카가야 우부야시키는 귀살대의 수장으로서 모든 상황을 보고받고 인지합니다."
+    },
+    {
+      "source": "e11",
+      "target": "e5",
+      "relationship": "신뢰",
+      "description": "카가야 우부야시키는 염주 렌고쿠 쿄쥬로를 신뢰합니다."
+    },
+    {
+      "source": "e1",
+      "target": "e9",
+      "relationship": "영향 받음",
+      "description": "탄지로는 엔무의 혈귀술로 인해 꿈의 세계에 갇힙니다."
+    }
+  ],
+  "events": [
+    {
+      "id": "ev1",
+      "name": "무한열차 탑승",
+      "description": "탄지로, 네즈코, 젠이츠, 이노스케가 무한열차에 탑승하여 렌고쿠와 합류한다.",
+      "participants": [
+        "e1",
+        "e2",
+        "e3",
+        "e4",
+        "e5"
+      ],
+      "location": "e8",
+      "sequence": 1
+    },
+    {
+      "id": "ev2",
+      "name": "꿈에 빠짐",
+      "description": "엔무의 능력으로 승객들이 꿈에 빠진다.",
+      "participants": [
+        "e1",
+        "e2",
+        "e3",
+        "e4",
+        "e5",
+        "e6"
+      ],
+      "location": "e8, e9",
+      "sequence": 2
+    },
+    {
+      "id": "ev3",
+      "name": "엔무와의 전투",
+      "description": "탄지로 일행이 엔무와 싸운다.",
+      "participants": [
+        "e1",
+        "e2",
+        "e3",
+        "e4",
+        "e5",
+        "e6"
+      ],
+      "location": "e8",
+      "sequence": 3
+    },
+    {
+      "id": "ev4",
+      "name": "렌고쿠의 희생",
+      "description": "렌고쿠가 아카자와의 싸움에서 희생된다.",
+      "participants": [
+        "e5",
+        "e7"
+      ],
+      "location": "e8",
+      "sequence": 4
+    },
+    {
+      "id": "ev5",
+      "name": "아카자와의 조우",
+      "description": "탄지로 일행이 아카자와 조우한다.",
+      "participants": [
+        "e1",
+        "e2",
+        "e3",
+        "e4",
+        "e7"
+      ],
+      "location": "e8",
+      "sequence": 5
+    },
+    {
+      "id": "ev6",
+      "name": "무한열차 탈선",
+      "description": "엔무를 처치하고 무한열차가 탈선한다.",
+      "participants": [
+        "e1",
+        "e2",
+        "e3",
+        "e4",
+        "e6"
+      ],
+      "location": "e8",
+      "sequence": 6
+    }
+  ]
+}

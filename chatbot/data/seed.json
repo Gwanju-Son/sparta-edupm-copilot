@@ -1,0 +1,57 @@
+{
+  "companies": [
+    {"id": "A", "name": "Alpha Corp"},
+    {"id": "B", "name": "Beta Ltd"}
+  ],
+  "cohorts": [
+    {"id": "A-1", "company_id": "A", "name": "Alpha PM Track", "start_at": "2025-09-01", "end_at": "2025-10-31"},
+    {"id": "A-2", "company_id": "A", "name": "Alpha Data Track", "start_at": "2025-09-15", "end_at": "2025-11-10"},
+    {"id": "B-1", "company_id": "B", "name": "Beta PM Track", "start_at": "2025-09-01", "end_at": "2025-10-31"}
+  ],
+  "learners": [
+    {"id": "L1", "name": "Kim", "company_id": "A", "cohort_id": "A-1", "role": "PM", "level": "junior"},
+    {"id": "L2", "name": "Lee", "company_id": "A", "cohort_id": "A-1", "role": "PM", "level": "junior"},
+    {"id": "L3", "name": "Park", "company_id": "A", "cohort_id": "A-2", "role": "DA", "level": "junior"},
+    {"id": "L4", "name": "Choi", "company_id": "A", "cohort_id": "A-2", "role": "DA", "level": "junior"},
+    {"id": "L5", "name": "Jung", "company_id": "B", "cohort_id": "B-1", "role": "PM", "level": "mid"}
+  ],
+  "attendance": [
+    {"learner_id": "L1", "cohort_id": "A-1", "status": "present"},
+    {"learner_id": "L1", "cohort_id": "A-1", "status": "absent"},
+    {"learner_id": "L2", "cohort_id": "A-1", "status": "present"},
+    {"learner_id": "L2", "cohort_id": "A-1", "status": "present"},
+    {"learner_id": "L3", "cohort_id": "A-2", "status": "present"},
+    {"learner_id": "L3", "cohort_id": "A-2", "status": "present"},
+    {"learner_id": "L4", "cohort_id": "A-2", "status": "absent"},
+    {"learner_id": "L4", "cohort_id": "A-2", "status": "absent"},
+    {"learner_id": "L5", "cohort_id": "B-1", "status": "present"},
+    {"learner_id": "L5", "cohort_id": "B-1", "status": "present"}
+  ],
+  "assessments": [
+    {"learner_id": "L1", "cohort_id": "A-1", "type": "quiz", "score": 55, "submitted": true},
+    {"learner_id": "L1", "cohort_id": "A-1", "type": "assignment", "score": 60, "submitted": false},
+    {"learner_id": "L2", "cohort_id": "A-1", "type": "quiz", "score": 80, "submitted": true},
+    {"learner_id": "L2", "cohort_id": "A-1", "type": "assignment", "score": 88, "submitted": true},
+    {"learner_id": "L3", "cohort_id": "A-2", "type": "quiz", "score": 72, "submitted": true},
+    {"learner_id": "L3", "cohort_id": "A-2", "type": "assignment", "score": 70, "submitted": true},
+    {"learner_id": "L4", "cohort_id": "A-2", "type": "quiz", "score": 40, "submitted": true},
+    {"learner_id": "L4", "cohort_id": "A-2", "type": "assignment", "score": 50, "submitted": false},
+    {"learner_id": "L5", "cohort_id": "B-1", "type": "quiz", "score": 90, "submitted": true},
+    {"learner_id": "L5", "cohort_id": "B-1", "type": "assignment", "score": 92, "submitted": true}
+  ],
+  "satisfaction": [
+    {"learner_id": "L1", "cohort_id": "A-1", "rating": 3.0, "text": "속도가 빨라요"},
+    {"learner_id": "L2", "cohort_id": "A-1", "rating": 4.5, "text": "만족"},
+    {"learner_id": "L3", "cohort_id": "A-2", "rating": 4.2, "text": "좋아요"},
+    {"learner_id": "L4", "cohort_id": "A-2", "rating": 2.8, "text": "어려움"},
+    {"learner_id": "L5", "cohort_id": "B-1", "rating": 4.8, "text": "아주 좋음"}
+  ],
+  "modules": [
+    {"id": "M1", "topic": "Data Basics", "level": "junior", "duration_hours": 3, "tags": ["data", "foundation"]},
+    {"id": "M2", "topic": "SQL for PM", "level": "junior", "duration_hours": 3, "tags": ["sql", "pm", "data"]},
+    {"id": "M3", "topic": "A/B Testing", "level": "junior", "duration_hours": 2, "tags": ["pm", "experiment"]},
+    {"id": "M4", "topic": "Metrics & KPI", "level": "mid", "duration_hours": 2, "tags": ["pm", "metrics"]},
+    {"id": "M5", "topic": "Python Basics", "level": "junior", "duration_hours": 4, "tags": ["python", "data"]},
+    {"id": "M6", "topic": "Dashboard Storytelling", "level": "mid", "duration_hours": 2, "tags": ["viz", "pm"]}
+  ]
+}
