@@ -1,0 +1,71 @@
+name: keep-alive-streamlit
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Every 20 minutes (UTC). The job itself will gate by KST hours.
+    - cron: '*/20 * * * *'
+
+jobs:
+  ping:
+    name: Ping Streamlit app to keep it awake
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    concurrency:
+      group: keep-alive-streamlit
+      cancel-in-progress: false
+    env:
+      APP_URL: https://gwanju-son-sparta-edupm-copilot-edupm-appapp-m5srnr.streamlit.app/
+      USER_AGENT: KeepAliveBot/1.0 (+https://github.com/Gwanju-Son/sparta-edupm-copilot)
+      RUN_KST_WINDOW: "yes"  # set to "no" to run 24/7
+    steps:
+      - name: Gate by KST time window (08:00–23:00)
+        id: gate
+        run: |
+          HOUR_UTC=$(date -u +%H)
+          HOUR_KST=$(( (10#$HOUR_UTC + 9) % 24 ))
+          echo "Current UTC hour: ${HOUR_UTC}; KST hour: ${HOUR_KST}"
+          if [ "$RUN_KST_WINDOW" = "yes" ]; then
+            if [ $HOUR_KST -lt 8 ] || [ $HOUR_KST -gt 22 ]; then
+              echo "Outside KST 08:00–23:00 window. Skipping run." | tee -a $GITHUB_STEP_SUMMARY
+              echo "skip=true" >> $GITHUB_OUTPUT
+              exit 0
+            fi
+          fi
+          echo "skip=false" >> $GITHUB_OUTPUT
+
+      - name: Add jitter to avoid thundering herd
+        if: steps.gate.outputs.skip == 'false'
+        run: |
+          JITTER=$((RANDOM % 180))
+          echo "Sleeping for random jitter: ${JITTER}s"
+          sleep $JITTER
+
+      - name: HEAD request (fast path)
+        if: steps.gate.outputs.skip == 'false'
+        run: |
+          set -e
+          for i in 1 2; do
+            echo "Attempt ${i}: HEAD $APP_URL"
+            if curl -sS -I -A "$USER_AGENT" --max-time 10 "$APP_URL" | head -n 1; then
+              echo "HEAD succeeded" | tee -a $GITHUB_STEP_SUMMARY
+              exit 0
+            fi
+            echo "HEAD failed, retrying in 10s"; sleep 10
+          done
+          exit 1
+
+      - name: GET fallback (returning content)
+        if: failure() && steps.gate.outputs.skip == 'false'
+        run: |
+          set -e
+          for i in 1 2 3; do
+            echo "Attempt ${i}: GET $APP_URL"
+            if curl -sS -A "$USER_AGENT" --max-time 15 -o /dev/null -w "%{http_code}\n" "$APP_URL"; then
+              echo "GET succeeded" | tee -a $GITHUB_STEP_SUMMARY
+              exit 0
+            fi
+            echo "GET failed, retrying in 10s"; sleep 10
+          done
+          echo "All attempts failed" | tee -a $GITHUB_STEP_SUMMARY
+          exit 1
